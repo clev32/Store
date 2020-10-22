@@ -1,0 +1,21 @@
+﻿<Page x:Class="DB_APP_STORE.WelcomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DB_APP_STORE"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="WeldomePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="249*"/>
+            <ColumnDefinition Width="551*"/>
+        </Grid.ColumnDefinitions>
+        <Image Margin="0,0,0,-0.4" Source="gray-steel-shopping-cart-953864.jpg" Stretch="Fill" Grid.ColumnSpan="2"/>
+        <Label Content="Welcome" HorizontalAlignment="Left" Margin="0,-18,0,0" VerticalAlignment="Top" Height="122" Width="411" FontSize="80" Foreground="#FF140E6F" FontStyle="Italic" Grid.ColumnSpan="2"/>
+        <Label x:Name="nameLbl" FontSize="60" HorizontalAlignment="Left" Height="160" Margin="270.2,290,0,-0.4" VerticalAlignment="Top" Width="281" Background="{x:Null}" Foreground="#FF140E6F" FontStyle="Italic" Grid.Column="1"/>
+
+    </Grid>
+</Page>

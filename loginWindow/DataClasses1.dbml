@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FINALPROJECT" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-BOABPUV\SQLEXPRESS;Initial Catalog=FINALPROJECT;Integrated Security=True" SettingsObjectName="DB_APP_STORE.Properties.Settings" SettingsPropertyName="FINALPROJECTConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ITEM" Member="ITEMs">
+    <Type Name="ITEM">
+      <Column Name="upc" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="itemName" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="itemTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="unitPrice" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="qtyInInventory" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="reorderLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vendorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ITEM_SALES_ORDER_DETAIL" Member="SALES_ORDER_DETAILs" ThisKey="upc" OtherKey="upc" Type="SALES_ORDER_DETAIL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SALES_ORDER" Member="SALES_ORDERs">
+    <Type Name="SALES_ORDER">
+      <Column Name="salesOrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dateOfSale" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cashierId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="totalSale" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Column Name="custId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="minPurchaseForDiscount" Type="System.Decimal" DbType="Decimal(4,2) NOT NULL" CanBeNull="false" />
+      <Association Name="SALES_ORDER_SALES_ORDER_DETAIL" Member="SALES_ORDER_DETAILs" ThisKey="salesOrderID" OtherKey="salesOrderID" Type="SALES_ORDER_DETAIL" />
+      <Association Name="CUSTOMER_SALES_ORDER" Member="CUSTOMER" ThisKey="custId" OtherKey="custID" Type="CUSTOMER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SALES_ORDER_DETAIL" Member="SALES_ORDER_DETAILs">
+    <Type Name="SALES_ORDER_DETAIL">
+      <Column Name="salesOrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="upc" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="qtySold" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="unitPrice" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="onSale" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="ITEM_SALES_ORDER_DETAIL" Member="ITEM" ThisKey="upc" OtherKey="upc" Type="ITEM" IsForeignKey="true" />
+      <Association Name="SALES_ORDER_SALES_ORDER_DETAIL" Member="SALES_ORDER" ThisKey="salesOrderID" OtherKey="salesOrderID" Type="SALES_ORDER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PERSON" Member="PERSONs">
+    <Type Name="PERSON">
+      <Column Name="personID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="firstName" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="lastName" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNumber" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="street" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="zipCode" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="stateInitial" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="PERSON_CUSTOMER" Member="CUSTOMER" ThisKey="personID" OtherKey="custID" Type="CUSTOMER" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMER" Member="CUSTOMERs">
+    <Type Name="CUSTOMER">
+      <Column Name="custID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="balance" Type="System.Decimal" DbType="Decimal(6,2) NOT NULL" CanBeNull="false" />
+      <Association Name="CUSTOMER_SALES_ORDER" Member="SALES_ORDERs" ThisKey="custID" OtherKey="custId" Type="SALES_ORDER" />
+      <Association Name="PERSON_CUSTOMER" Member="PERSON" ThisKey="custID" OtherKey="personID" Type="PERSON" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.usp_addASalesOrderItem" Method="usp_addASalesOrderItem">
+    <Parameter Name="salesOrderID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="upc" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="qty" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

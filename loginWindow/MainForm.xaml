@@ -1,0 +1,23 @@
+﻿<Window x:Class="DB_APP_STORE.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DB_APP_STORE"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        Title="Main Menu" Height="450" Width="859.932">
+    <Grid>
+
+        <Menu HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="854" Margin="0,0,-0.4,0"  x:Name="MainMenu" Background="#FF11448E">
+            <MenuItem x:Name= "ViewItemsItem" Header="View Items" Click="ViewItemsItem_Click" Foreground="#FFFDEDED" FontSize="16"/>
+            <MenuItem  x:Name= "MakePurchaseItem" Header="Make Purchase" Click="MakePurchaseItem_Click" Foreground="#FFF7EEEE"  FontSize="16" />
+            <MenuItem x:Name= "ViewAccountBalance" Header="View Balance/Make Payment" Click="ViewAccountBalance_Click" Foreground="#FFF4EBEB"  FontSize="16" />
+            <MenuItem x:Name= "ListPurchasesItem" Header="List of Purchases" Click="ListPurchasesItem_Click" Foreground="#FFF3EBEB"  FontSize="16" />
+
+        </Menu>
+
+        <Frame x:Name="Main" Margin="1,28,-1.4,0"/>
+    </Grid>
+
+</Window>

@@ -1,0 +1,14 @@
+﻿<Page x:Class="DB_APP_STORE.viewItemsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DB_APP_STORE"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="viewItemsPage">
+
+    <Grid>
+        <ListView x:Name="listView" Margin="10,10,10,9.6" RenderTransformOrigin="0.295,0.227"/>
+    </Grid>
+</Page>

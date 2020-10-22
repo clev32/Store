@@ -1,0 +1,50 @@
+﻿<Page x:Class="DB_APP_STORE.MakePurchasePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DB_APP_STORE"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MakePurchasePage">
+
+    <Grid>
+
+        <Canvas Name="LayoutRoot" Margin="0,0,0,-0.4">
+            <Canvas.Background>
+                <ImageBrush ImageSource="assorted-fresh-juicy-fruits-on-table-4194610.jpg" Opacity="0.25"/>
+            </Canvas.Background>
+            <Label x:Name="upcLbl" Content="UPC:" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="70" FontSize="20" Background="{x:Null}" Canvas.Left="179" Canvas.Top="22" Foreground="#FF3C7F28"/>
+            <ComboBox Name="upcDrpDown" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="280,28,0,0" BorderBrush="#FF24C843">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FF564242" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+            <Label x:Name="qtyLbl" Content="Qty:" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="70" FontSize="20" RenderTransformOrigin="0.571,1.189" Background="{x:Null}" Canvas.Left="179" Canvas.Top="71" Foreground="#FF3C7F28"/>
+            <CheckBox x:Name="existingOrderChkBox" Content="Add to existing order" HorizontalAlignment="Left" Height="33" Margin="280,146,0,0" VerticalAlignment="Top" Width="154" Checked="existingOrderChkBox_Checked"/>
+            <Label x:Name="OrderIDLbl" Content="" Foreground="#FF3C7F28" FontSize="16" Canvas.Top="203" Width="261"/>
+            <ComboBox Name="ordersDrpDown" Visibility="Hidden" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Canvas.Left="278" Canvas.Top="209"/>
+            <Button x:Name="completePurchaseBtn" Content="Complete Purchase" Height="44" Canvas.Left="317" Canvas.Top="270" Width="135" Click="completePurchaseBtn_Click" FontSize="14" Foreground="#FFFDF7F7">
+                <Button.Background>
+                    <SolidColorBrush Color="#FF58AB5C" Opacity="0.75"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="upBtn" Content="^" Height="23" Canvas.Left="332" Canvas.Top="67" Width="22" FontSize="20" Click="upBtn_Click" RenderTransformOrigin="1.789,0.334" Background="#FFE7986D"/>
+            <Button x:Name="dwnBtn" Content="^" Height="23" Canvas.Left="332" Canvas.Top="98" Width="22" FontSize="20" RenderTransformOrigin="1.753,-0.238" Click="dwnBtn_Click" Background="#FFE7986D">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.825"/>
+                        <TranslateTransform X="-55.376" Y="33.549"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <TextBox x:Name="qty_txt" HorizontalContentAlignment="Center"  Height="29" Canvas.Left="276" TextWrapping="Wrap" Text="1" Canvas.Top="77" Width="47" RenderTransformOrigin="0.235,0.441"/>
+
+        </Canvas>
+    </Grid>
+</Page>

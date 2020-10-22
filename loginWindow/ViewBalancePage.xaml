@@ -1,0 +1,23 @@
+﻿<Page x:Class="DB_APP_STORE.ViewBalancePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DB_APP_STORE"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ViewBalancePage">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="numbers-money-calculating-calculation-3305.jpg" Opacity="0.4"/>
+        </Grid.Background>
+        <Label Content="Current Balance: " HorizontalAlignment="Left" Height="51" Margin="198,118,0,0" VerticalAlignment="Top" Width="165" FontSize="20"/>
+        <Label x:Name="BalanceLbl" Content="" HorizontalAlignment="Left" Height="37" Margin="379,120,0,0" VerticalAlignment="Top" Width="120" FontSize="20"/>
+        <Button x:Name="PaymentBtn" Content="Make Payment" HorizontalAlignment="Left" Height="38" Margin="379,259,0,0" VerticalAlignment="Top" Width="90" Click="PaymentBtn_Click" Background="#FFB68144" RenderTransformOrigin="0.937,0.485"/>
+        <Label Content="Payment Amount:" HorizontalAlignment="Left" Height="36" Margin="198,174,0,0" VerticalAlignment="Top" Width="180" FontSize="20"/>
+        <TextBox x:Name="amnt_txt" HorizontalAlignment="Left" Height="23" Margin="378,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Border BorderBrush="#FFB68144" BorderThickness="5" HorizontalAlignment="Left" Height="350" Margin="106,44,0,0" VerticalAlignment="Top" Width="609"/>
+
+    </Grid>
+</Page>
